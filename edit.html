@@ -1,0 +1,39 @@
+<!--
+  This template loads for the 'tab.adopt' state (app.js)
+-->
+<ion-view title="Edit Member">
+  <ion-content has-tabs="true" class="has-header">
+    <div ng-controller="fileCtrl">
+      <form name="addContactForm">
+        <ion-content padding="true" class="has-header">
+          <div class="list list-inset" >
+            <label class="item item-input">
+              <span class="input-label">Name:  {{members.name}}</span>
+              <input type="text" ng-model="name" required>
+            </label>
+            <label class="item item-input">
+              <span class="input-label">UUID: {{members.UUID}}</span>
+              <input type="text" ng-model="UUID" required>
+            </label>
+            <div class="item item-divider"> </div>
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Requirements: {{members.requirements}}</span>
+              <textarea ng-model="requirements"></textarea>
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Next of Kin name{{members.NOKname}}</span>
+              <input type="text" ng-model="NOKname">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Next of Kin contact{{members.NOKcontact}}</span>
+              <input type="text" ng-model="NOKcontact">
+            </label>
+
+            <button class="button button-positive button-block" ng-click="editMember()" >Edit <i>{{name}}</i></button>
+            <p class="warning">{{failed}}</p>
+          </div>
+      </form>
+      <button class="button button-clear button-assertive" ng-click="deleteMember()" >Delete <i>{{name}}</i></button>
+    </div>
+  </ion-content>
+</ion-view>
