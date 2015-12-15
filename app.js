@@ -6,16 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 
 angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
-/*
-  .config(function(uiGmapGoogleMapApiProvider) {
-    uiGmapGoogleMapApiProvider.configure({
-      //    key: 'your api key',
-      v: '3.20', //defaults to latest 3.X anyhow
-      libraries: 'weather,geometry,visualization'
-    });
-  })
 
-*/
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -23,13 +14,39 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
+    .state('member-details', {
+      url: '/member/:memberId',
+      templateUrl: 'templates/member_details.html',
+      controller: 'MemberDetailCtrl'
+    })
+    .state('map', {
+      url: '/map',
+      templateUrl: 'templates/map.html',
+      controller: 'MapCtrl'
+    })
+    .state('add', {
+      url: '/add',
+      templateUrl: 'templates/add.html',
+      controller: 'AddMemberCtrl',
 
+    })
+    .state('edit', {
+      url: '/edit/:memberId',
+      templateUrl: 'templates/edit.html',
+      controller: 'MemberIndexCtrl'
+    })
+
+  //changed layout from tabbed to linked
     // setup an abstract state for the tabs directive
-    .state('tab', {
+   /* .state('tab', {
       url: '/tab',
       abstract: true,
       templateUrl: 'templates/tabs.html'
     })
+
+
+
+
     .state('tab.map', {
       url: '/map',
       views: {
@@ -60,13 +77,23 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
           templateUrl: 'templates/edit.html'
         }
       }
-    });
-
+    })
+/*
+  .state('tab.member', {
+    url: '/member/:memberId',
+    views: {
+      'member-tab': {
+        templateUrl: 'templates/member_details.html',
+        controller: 'MemberDetailCtrl'
+      }
+    }
+  })
+  */
 
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/map');
+  $urlRouterProvider.otherwise('/map');
 
 });
 

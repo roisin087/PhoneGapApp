@@ -1,0 +1,21 @@
+
+<ion-view title="{{member.name}}" ng-controller="MemberDetailCtrl">
+  <ion-content padding="true">
+    <p>{{ member.UUID}}</p>
+    <p>{{ member.requirements}}</p>
+    <p>{{ member.NOKname}}</p>
+    <p>{{ member.NOKcontact}}</p>
+    <div class="button-bar">
+      <a class="button button-positive" href="#/edit/{{member.id}}">Edit</a>
+      <a class="button button-positive" href="#/tab/map">All Members</a>
+      <a class="button button-positive" href="#/tab/map">Delete</a>
+    </div>
+
+  </ion-content>
+  <ion-footer-bar align-title="left" class="bar-stable">
+    <div class="buttons">
+      <a class="button" href="#/add">Add member</a>
+    </div>
+
+  </ion-footer-bar>
+</ion-view>

@@ -7,10 +7,11 @@
       <br><br>
 
     </div>
-    <div ng-controller="fileCtrl">
 
+    <div ng-controller="MemberIndexCtrl">
       <div class="list">
-        <a ng-repeat="member in members" item="item" href="#" class="item item-thumbnail-left">
+        <a ng-repeat="member in members" item="item" href="#/member/{{member.id}}" class="item item-thumbnail-left">
+          <img ng-src="{{member.image}}">
           <p>Id: {{member.id}}</p>
 
           <p>Name: {{member.name}}</p>
@@ -32,7 +33,14 @@
        </a>
 
       </div>-->
+        </div>
       </div>
     </div>
   </ion-content>
+  <ion-footer-bar align-title="left" class="bar-stable">
+    <div class="buttons">
+      <a class="button" href="#/add">Add member</a>
+    </div>
+
+  </ion-footer-bar>
 </ion-view>

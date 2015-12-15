@@ -3,30 +3,30 @@
 -->
 <ion-view title="Edit Member">
   <ion-content has-tabs="true" class="has-header">
-    <div ng-controller="fileCtrl">
+    <div ng-controller="MemberDetailCtrl">
       <form name="addContactForm">
         <ion-content padding="true" class="has-header">
           <div class="list list-inset" >
             <label class="item item-input">
-              <span class="input-label">Name:  {{members.name}}</span>
-              <input type="text" ng-model="name" required>
+              <span class="input-label">Name: </span>
+              <input type="text" placeholder="{{member.name}}" ng-model="name" required>
             </label>
             <label class="item item-input">
-              <span class="input-label">UUID: {{members.UUID}}</span>
-              <input type="text" ng-model="UUID" required>
+              <span class="input-label">UUID: </span>
+              <input type="text" placeholder="{{member.UUID}}" ng-model="UUID" required>
             </label>
             <div class="item item-divider"> </div>
             <label class="item item-input item-stacked-label">
-              <span class="input-label">Requirements: {{members.requirements}}</span>
-              <textarea ng-model="requirements"></textarea>
+              <span class="input-label">Requirements: </span>
+              <textarea ng-model="requirements" placeholder="{{member.requirements}}"></textarea>
             </label>
             <label class="item item-input">
-              <span class="input-label">Next of Kin name{{members.NOKname}}</span>
-              <input type="text" ng-model="NOKname">
+              <span class="input-label">Next of Kin name: </span>
+              <input type="text" ng-model="NOKname" placeholder=" {{member.NOKname}}">
             </label>
             <label class="item item-input">
-              <span class="input-label">Next of Kin contact{{members.NOKcontact}}</span>
-              <input type="text" ng-model="NOKcontact">
+              <span class="input-label">Next of Kin contact: </span>
+              <input type="text" ng-model="NOKcontact" placeholder="{{member.NOKcontact}}">
             </label>
 
             <button class="button button-positive button-block" ng-click="editMember()" >Edit <i>{{name}}</i></button>
@@ -36,4 +36,10 @@
       <button class="button button-clear button-assertive" ng-click="deleteMember()" >Delete <i>{{name}}</i></button>
     </div>
   </ion-content>
+  <ion-footer-bar align-title="left" class="bar-stable">
+    <div class="buttons">
+      <a class="button" href="#/add">Add member</a>
+    </div>
+
+  </ion-footer-bar>
 </ion-view>
