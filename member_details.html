@@ -1,13 +1,22 @@
-
 <ion-view title="{{member.name}}" ng-controller="MemberDetailCtrl">
+
   <ion-content padding="true">
-    <p>{{ member.UUID}}</p>
-    <p>{{ member.requirements}}</p>
-    <p>{{ member.NOKname}}</p>
-    <p>{{ member.NOKcontact}}</p>
+    <div class="list card">
+      <div class="item item-image">
+        <img ng-src="{{member.image}}">
+      </div>
+      <div class="item item-divider"></div>
+      <div class="item item-text-wrap">
+        <p>UUID: {{ member.UUID}}</p>
+        <p>Requirements: {{ member.requirements}}</p>
+        <p>Next Of Kin name: {{ member.NOKname}}</p>
+        <p>Next Of Kin contact: {{ member.NOKcontact}}</p>
+      </div>
+    </div>
+
+
     <div class="button-bar">
       <a class="button button-positive" href="#/edit/{{member.id}}">Edit</a>
-      <a class="button button-positive" href="#/tab/map">All Members</a>
       <a class="button button-positive" href="#/tab/map">Delete</a>
     </div>
 

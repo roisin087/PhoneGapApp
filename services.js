@@ -5,6 +5,10 @@ angular.module('starter.services', [])
   var members = [];
   return {
     all: function () {
+      //clear the array and update
+      if(members.length >0){
+        members = [];
+      }
       if (window.localStorage.length > 0) {
         // For each item in local storage...
         for (item in localStorage) {
@@ -36,23 +40,34 @@ angular.module('starter.services', [])
     }
   }
 })
-
+  .factory('Bluetooth', ['$scope', function($scope) {
+  return {
+    pair: function() {
+      window.bluetooth.pair(
+        function () {
+          console.log('Pairing Successful');
+        },
+        function (err) {
+          console.log('There was an error Pairing to a device' + JSON.stringify(err));
+        }, deviceaddress);
+    }
+  }
+  }])
 .factory('Camera', ['$q', function($q) {
 
-    return {
-      getPicture: function(options) {
-        var q = $q.defer();
+  return {
+    getPicture: function(options) {
+      var q = $q.defer();
 
-        navigator.camera.getPicture(function(result) {
-          // Do any magic you need
-          q.resolve(result);
-        }, function(err) {
-          q.reject(err);
-        }, options);
+      navigator.camera.getPicture(function(result) {
+        q.resolve(result);
+      }, function(err) {
+        q.reject(err);
+      }, options);
 
-        return q.promise;
-      }
+      return q.promise;
     }
-  }]);
+  }
+}]);
 
 

@@ -7,35 +7,26 @@
       <br><br>
 
     </div>
-
+    <!--
+    <div ng-controller="BluetoothCtrl">
+      <button class ="button button-small button-positive" ng-click="findDevices()">Find bluetooth devices</button>
+    </div>  -->
     <div ng-controller="MemberIndexCtrl">
       <div class="list">
-        <a ng-repeat="member in members" item="item" href="#/member/{{member.id}}" class="item item-thumbnail-left">
-          <img ng-src="{{member.image}}">
+        <a ng-repeat="member in members " href="#/member/{{member.id}}" class="item item-thumbnail-left">
+          <img ng-src="{{member.image}}" />
           <p>Id: {{member.id}}</p>
 
           <p>Name: {{member.name}}</p>
 
-          <p>UUID: {{member.UUID}}</p>
-
-          <p>Next of Kin name: {{member.NOKname}}</p>
-
-          <p>Next of kin contact: {{member.NOKcontact}}</p>
-          {{error}}
         </a>
-        <!--<div class="list">
 
-      <a ng-repeat="item in items" href="#/{{members.id}}"class="item item-thumbnail-left">
-
-        <img ng-src="{{ item.image }}"
-          <h2>{{ members.name}}</h2>
-
-       </a>
-
-      </div>-->
         </div>
+
       </div>
-    </div>
+
+
+
   </ion-content>
   <ion-footer-bar align-title="left" class="bar-stable">
     <div class="buttons">
